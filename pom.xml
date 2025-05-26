@@ -10,6 +10,8 @@
     <version>1.0.0</version>
     <modules>
         <module>user-service</module>
+        <module>prize-service</module>
+        <module>lottery-service</module>
     </modules>
 
     <parent>
