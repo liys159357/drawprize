@@ -10,5 +10,7 @@ import java.util.List;
 public interface PrizeService extends IService<Prize> {
     List<Prize> getAvailablePrizes();
 
-    int decreaseRemaining(Long id);
+    boolean decreaseRemaining(Long id);
+
+
 }

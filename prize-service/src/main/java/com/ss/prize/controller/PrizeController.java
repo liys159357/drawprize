@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ss.prize.entity.Prize;
 import com.ss.prize.service.PrizeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -69,5 +70,16 @@ public class PrizeController {
     @DeleteMapping("/{id}")
     public void deletePrize(@PathVariable Long id) {
         prizeService.removeById(id);
+    }
+
+    /**
+     *扣减库存
+     * @param id
+     * @return
+     */
+    @PostMapping("/{id}/decrease")
+    public ResponseEntity<Boolean> decreaseStock(@PathVariable Long id) {
+        boolean success = prizeService.decreaseRemaining(id);
+        return ResponseEntity.ok(success);
     }
 }

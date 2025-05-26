@@ -20,4 +20,5 @@ public interface IUserService extends IService<User> {
 
 
     void register(User user);
+
 }

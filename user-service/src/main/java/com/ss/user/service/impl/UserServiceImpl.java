@@ -69,6 +69,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         baseMapper.insert(user);
         log.info("用户{}注册成功", user.getUsername());
     }
+    }
 
 
-}

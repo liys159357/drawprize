@@ -12,13 +12,20 @@ import java.util.List;
 
 @Service
 public class PrizeServiceImpl extends ServiceImpl<PrizeMapper, Prize> implements PrizeService {
+    private final PrizeMapper prizeMapper;
+
+    public PrizeServiceImpl(PrizeMapper prizeMapper) {
+        this.prizeMapper = prizeMapper;
+    }
+
     @Override
     public List<Prize> getAvailablePrizes() {
         return baseMapper.selectAvailablePrizes();
     }
 
     @Override
-    public int decreaseRemaining(Long id) {
+    public boolean decreaseRemaining(Long id) {
         return baseMapper.decreaseRemaining(id);
     }
+
 }
