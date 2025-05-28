@@ -16,9 +16,14 @@ import com.ss.user.domain.vo.UserLoginVO;
  */
 public interface IUserService extends IService<User> {
 
+
     UserLoginVO login(LoginFormDTO loginFormDTO);
 
 
+
     void register(User user);
+
+    //todo
+    User getUserById(Long id);
 
 }

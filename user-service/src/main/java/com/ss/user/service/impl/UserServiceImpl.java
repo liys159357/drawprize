@@ -34,6 +34,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     private final JwtTool jwtTool;
 
     private final JwtProperties jwtProperties;
+    private final UserMapper userMapper;
 
     @Override
     public UserLoginVO login(LoginFormDTO loginDTO) {
@@ -69,6 +70,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         baseMapper.insert(user);
         log.info("用户{}注册成功", user.getUsername());
     }
+
+    //todo
+    @Override
+    public User getUserById(Long id) {
+        return userMapper.selectById(id);
     }
+}
 
 

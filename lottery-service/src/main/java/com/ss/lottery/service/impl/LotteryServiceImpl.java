@@ -4,8 +4,10 @@ import com.ss.lottery.entity.LotteryResult;
 import com.ss.lottery.entity.Prize;
 import com.ss.lottery.entity.UserLotteryRecord;
 import com.ss.lottery.feign.PrizeFeignClient;
+import com.ss.lottery.feign.UserFeignClient;
 import com.ss.lottery.mapper.UserLotteryRecordMapper;
 import com.ss.lottery.service.LotteryService;
+import com.ss.user.domain.po.User;
 import com.ss.user.service.IUserService;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,9 +38,14 @@ public class LotteryServiceImpl implements LotteryService {
     private final String exchange;//消息交换器的名称
     private final String routingKey; //消息路由键
 
+    private final UserFeignClient userFeignClient; //用户服务Feign客户端todo
+
+
+
     @Autowired
     public LotteryServiceImpl(
             PrizeFeignClient prizeFeignClient,
+            UserFeignClient  userFeignClient,  //todo
             UserLotteryRecordMapper recordMapper,
             RabbitTemplate rabbitTemplate,
             @Value("${lottery.mq.exchange}") String exchange,
@@ -49,11 +56,12 @@ public class LotteryServiceImpl implements LotteryService {
         this.rabbitTemplate = rabbitTemplate;
         this.exchange = exchange;
         this.routingKey = routingKey;
+        this.userFeignClient = userFeignClient; //todo
     }
 
     /**
      * 用户抽奖主方法
-     * @param userId
+     * @param userId 用户id
      * @return
      */
 
@@ -61,6 +69,26 @@ public class LotteryServiceImpl implements LotteryService {
     @Transactional //保证数据库操作原子性
     @Retryable(value = {Exception.class}, maxAttempts = 3, backoff = @Backoff(delay = 200))
     public LotteryResult drawLottery(String userId) {
+        // 校验用户ID格式（假设用户ID为数字,非数字格式判定为无效用户）todo
+        Long userIdLong;
+        try {
+            userIdLong = Long.parseLong(userId);
+        } catch (NumberFormatException e) {
+            return sendResult(userId, "用户ID格式错误，抽奖失败");  // 底部声明了sendResult方法
+        }
+
+        // 1. 校验用户是否存在todo
+        User user = userFeignClient.getUserById(userIdLong);
+        if (user == null) {
+            return sendResult(userId, "用户不存在，抽奖失败");
+        }
+
+        // 2. 校验用户是否已抽奖（限制每人1次）todo
+        int lotteryCount = recordMapper.countByUserId(userId);
+        if (lotteryCount > 0) {
+            return sendResult(userId, "抽奖已达上限，抽奖失败");
+        }
+
         //1.获取所有可用奖品(库存大于0)
         List<Prize> availablePrizes = prizeFeignClient.getAvailablePrizes();
         //2.无可用奖品时直接返回未中奖结果
@@ -147,6 +175,24 @@ public class LotteryServiceImpl implements LotteryService {
         //发送结果到RabbitMq队列，前端可监听此队列获取实时结果
 
         rabbitTemplate.convertAndSend(exchange, routingKey, result);
+        return result;
+    }
+
+    /** todo
+     * 发送带失败原因的抽奖结果（无奖品）
+     * @param userId 用户ID
+     * @param failReason 失败原因描述（如"用户不存在"）
+     * @return 抽奖结果对象
+     */
+    private LotteryResult sendResult(String userId, String failReason) {
+        LotteryResult result = new LotteryResult(
+                userId,
+                null,  // 无奖品时ID为null
+                failReason,  // 使用传入的失败原因作为提示
+                false,  // 标记为失败
+                System.currentTimeMillis()
+        );
+        rabbitTemplate.convertAndSend(exchange, routingKey, result);  // 发送到消息队列
         return result;
     }
 }
