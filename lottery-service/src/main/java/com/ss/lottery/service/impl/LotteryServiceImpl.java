@@ -3,6 +3,7 @@ package com.ss.lottery.service.impl;
 import com.ss.lottery.entity.LotteryResult;
 import com.ss.lottery.entity.Prize;
 import com.ss.lottery.entity.UserLotteryRecord;
+import com.ss.lottery.entity.vo.UserLotteryRecordVO;
 import com.ss.lottery.feign.PrizeFeignClient;
 import com.ss.lottery.feign.UserFeignClient;
 import com.ss.lottery.mapper.UserLotteryRecordMapper;
@@ -22,6 +23,7 @@ import java.security.SecureRandom;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 /**
  * 抽奖服务实现类、处理用户抽奖核心逻辑
@@ -195,4 +197,27 @@ public class LotteryServiceImpl implements LotteryService {
         rabbitTemplate.convertAndSend(exchange, routingKey, result);  // 发送到消息队列
         return result;
     }
+
+    /**
+     * 获取用户中奖记录
+     * @param token 用户令牌
+     * @return 中奖记录列表
+     */
+    @Override
+    public List<UserLotteryRecordVO> getUserRecords(String token) {
+        // 1. 通过token获取用户ID
+        Long userId = userFeignClient.getUserIdByToken(token);
+        System.out.println("userId:"+userId);
+        // 2. 查询该用户的中奖记录(result=true)
+        List<UserLotteryRecord> records = recordMapper.selectByUserIdAndResult(userId, 1);
+        System.out.println("records:"+records);
+        // 3. 转换为VO对象
+        return records.stream().map(record -> {
+            UserLotteryRecordVO vo = new UserLotteryRecordVO();
+            vo.setPrizeName(prizeFeignClient.getPrizeNameById(record.getPrizeId()));
+            vo.setCreateTime(record.getCreateTime());
+            return vo;
+        }).collect(Collectors.toList());
+    }
+
 }

@@ -24,4 +24,4 @@ hm:
     location: classpath:hmall.jks
     alias: hmall
     password: hmall123
-    tokenTTL: 3600
+    tokenTTL: 86400

@@ -6,4 +6,11 @@
     <select id="countByUserId" resultType="java.lang.Integer" parameterType="java.lang.String">
         SELECT COUNT(*) FROM user_lottery_record WHERE user_id = #{userId}
     </select>
+
+
+    <select id="selectByUserIdAndResult" resultType="com.ss.lottery.entity.UserLotteryRecord">
+        SELECT * FROM user_lottery_record
+        WHERE user_id = #{userId} AND result = #{result}
+        ORDER BY create_time DESC
+    </select>
 </mapper>

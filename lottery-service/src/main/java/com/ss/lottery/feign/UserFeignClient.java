@@ -8,4 +8,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface UserFeignClient {
     @GetMapping("/users/{id}")
     User getUserById(@PathVariable Long id);
+
+    /**
+     * 根据token获取用户ID
+     * @param token
+     * @return
+     */
+    @GetMapping("/users/token/{token}")
+    Long getUserIdByToken(@PathVariable String token);
 }

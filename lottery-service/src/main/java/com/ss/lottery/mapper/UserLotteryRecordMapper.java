@@ -5,6 +5,8 @@ import com.ss.lottery.entity.UserLotteryRecord;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 @Mapper
 public interface UserLotteryRecordMapper extends BaseMapper<UserLotteryRecord> {
 
@@ -16,4 +18,12 @@ public interface UserLotteryRecordMapper extends BaseMapper<UserLotteryRecord> {
      */
 
     int countByUserId(String userId);
+
+    /**
+     * 根据用户id和是否中奖的结果查询记录
+     * @param userId
+     * @param
+     * @return
+     */
+    List<UserLotteryRecord> selectByUserIdAndResult(Long userId, int result);
 }

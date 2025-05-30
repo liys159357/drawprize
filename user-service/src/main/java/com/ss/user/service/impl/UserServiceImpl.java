@@ -77,6 +77,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         return userMapper.selectById(id);
     }
 
+    @Override
+    public Long getUserIdByToken(String token) {
+        return jwtTool.parseToken(token);
+    }
 
 
 }

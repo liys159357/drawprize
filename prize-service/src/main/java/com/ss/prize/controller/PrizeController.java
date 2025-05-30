@@ -98,4 +98,14 @@ public class PrizeController {
         boolean success = prizeService.decreaseRemaining(id);
         return ResponseEntity.ok(success);
     }
+    /**
+     * 根据ID获取奖品名称
+     * @param id 奖品ID
+     * @return 奖品名称
+     */
+    @GetMapping("/{id}/name")
+    public String getPrizeNameById(@PathVariable("id") Long id) {
+        Prize prize = prizeService.getById(id);
+        return prize != null ? prize.getName() : "";
+    }
 }

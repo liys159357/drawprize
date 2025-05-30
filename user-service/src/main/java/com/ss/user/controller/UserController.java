@@ -6,11 +6,10 @@ import com.ss.user.domain.po.User;
 import com.ss.user.domain.vo.UserLoginVO;
 import com.ss.user.service.IUserService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
+
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,5 +41,10 @@ public class UserController {
         return userService.getUserById(id);
     }
 
+
+    @GetMapping("/token/{token}")
+    public Long getUserIdByToken(@PathVariable String token) {
+        return userService.getUserIdByToken(token);
+    }
 }
 

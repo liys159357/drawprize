@@ -26,4 +26,6 @@ public interface IUserService extends IService<User> {
 
     User getUserById(Long id);
 
+
+    Long getUserIdByToken(String token);
 }

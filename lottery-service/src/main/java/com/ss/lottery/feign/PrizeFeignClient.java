@@ -17,4 +17,12 @@ public interface PrizeFeignClient {
 
     @PostMapping("/api/prizes/{id}/decrease")
     ResponseEntity<Boolean> decreaseStock(@PathVariable("id") Long id);
+
+    /**
+     * 获取奖品名称
+     * @param id
+     * @return
+     */
+    @GetMapping("/api/prizes/{id}/name")
+    String getPrizeNameById(@PathVariable("id") Long id);
 }
