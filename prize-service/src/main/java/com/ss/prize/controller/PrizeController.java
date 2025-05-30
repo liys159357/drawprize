@@ -1,6 +1,7 @@
 package com.ss.prize.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
@@ -30,7 +31,7 @@ public class PrizeController {
     /**
      * 分页查询奖品列表
      */
-    @GetMapping
+    @GetMapping("/list")
     public IPage<Prize> getPrizes(
             @RequestParam(defaultValue = "1") Integer page,
             @RequestParam(defaultValue = "10") Integer size) {
@@ -46,6 +47,17 @@ public class PrizeController {
     }
 
     /**
+     * 根据名称查询奖品
+     *  使用mybatis-plus模糊查询
+     */
+    @GetMapping("/name")
+    public List<Prize> getPrizesByName(@RequestParam("name") String name) {
+        QueryWrapper<Prize> queryWrapper = new QueryWrapper<>();
+        queryWrapper.like("name", name);
+        return prizeService.list(queryWrapper);
+    }
+
+    /**
      * 添加奖品
      */
     @PostMapping
@@ -57,9 +69,9 @@ public class PrizeController {
     /**
      * 更新奖品信息
      */
-    @PutMapping("/{id}")
-    public Prize updatePrize(@PathVariable Long id, @RequestBody Prize prize) {
-        prize.setId(id);
+    @PutMapping("/updatePrize")
+    public Prize updatePrize(@RequestBody Prize prize) {
+        prize.setId(prize.getId());
         prizeService.updateById(prize);
         return prize;
     }
@@ -68,8 +80,12 @@ public class PrizeController {
      * 删除奖品
      */
     @DeleteMapping("/{id}")
-    public void deletePrize(@PathVariable Long id) {
-        prizeService.removeById(id);
+    public String deletePrize(@PathVariable Long id) {
+        boolean b = prizeService.removeById(id);
+        if (b) {
+            return "删除成功";
+        }
+        throw new RuntimeException("删除失败");
     }
 
     /**

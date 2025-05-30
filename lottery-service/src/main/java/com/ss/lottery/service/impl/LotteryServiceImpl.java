@@ -38,14 +38,14 @@ public class LotteryServiceImpl implements LotteryService {
     private final String exchange;//消息交换器的名称
     private final String routingKey; //消息路由键
 
-    private final UserFeignClient userFeignClient; //用户服务Feign客户端todo
+    private final UserFeignClient userFeignClient; //用户服务Feign客户端
 
 
 
     @Autowired
     public LotteryServiceImpl(
             PrizeFeignClient prizeFeignClient,
-            UserFeignClient  userFeignClient,  //todo
+            UserFeignClient  userFeignClient,
             UserLotteryRecordMapper recordMapper,
             RabbitTemplate rabbitTemplate,
             @Value("${lottery.mq.exchange}") String exchange,
@@ -56,7 +56,7 @@ public class LotteryServiceImpl implements LotteryService {
         this.rabbitTemplate = rabbitTemplate;
         this.exchange = exchange;
         this.routingKey = routingKey;
-        this.userFeignClient = userFeignClient; //todo
+        this.userFeignClient = userFeignClient;
     }
 
     /**
@@ -69,7 +69,7 @@ public class LotteryServiceImpl implements LotteryService {
     @Transactional //保证数据库操作原子性
     @Retryable(value = {Exception.class}, maxAttempts = 3, backoff = @Backoff(delay = 200))
     public LotteryResult drawLottery(String userId) {
-        // 校验用户ID格式（假设用户ID为数字,非数字格式判定为无效用户）todo
+        // 校验用户ID格式（假设用户ID为数字,非数字格式判定为无效用户）
         Long userIdLong;
         try {
             userIdLong = Long.parseLong(userId);
@@ -77,13 +77,13 @@ public class LotteryServiceImpl implements LotteryService {
             return sendResult(userId, "用户ID格式错误，抽奖失败");  // 底部声明了sendResult方法
         }
 
-        // 1. 校验用户是否存在todo
+        // 1. 校验用户是否存在
         User user = userFeignClient.getUserById(userIdLong);
         if (user == null) {
             return sendResult(userId, "用户不存在，抽奖失败");
         }
 
-        // 2. 校验用户是否已抽奖（限制每人1次）todo
+        // 2. 校验用户是否已抽奖（限制每人1次）
         int lotteryCount = recordMapper.countByUserId(userId);
         if (lotteryCount > 0) {
             return sendResult(userId, "抽奖已达上限，抽奖失败");
@@ -178,7 +178,7 @@ public class LotteryServiceImpl implements LotteryService {
         return result;
     }
 
-    /** todo
+    /**
      * 发送带失败原因的抽奖结果（无奖品）
      * @param userId 用户ID
      * @param failReason 失败原因描述（如"用户不存在"）

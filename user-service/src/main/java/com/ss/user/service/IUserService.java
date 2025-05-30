@@ -23,7 +23,7 @@ public interface IUserService extends IService<User> {
 
     void register(User user);
 
-    //todo
+
     User getUserById(Long id);
 
 }

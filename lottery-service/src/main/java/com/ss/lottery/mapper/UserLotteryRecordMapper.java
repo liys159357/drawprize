@@ -10,7 +10,7 @@ public interface UserLotteryRecordMapper extends BaseMapper<UserLotteryRecord> {
 
 
     /**
-     * 统计用户已抽奖次数 todo
+     * 统计用户已抽奖次数
      * @param userId
      * @return
      */
