@@ -12,6 +12,7 @@
         <module>user-service</module>
         <module>prize-service</module>
         <module>lottery-service</module>
+        <module>sss-gateway</module>
     </modules>
 
     <parent>

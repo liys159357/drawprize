@@ -36,7 +36,7 @@
 #  okhttp:
 #    enabled: true # 开启OKHttp功能
 server:
-  port: 8082
+  port: 8083
 spring:
   application:
     name: lottery-service
