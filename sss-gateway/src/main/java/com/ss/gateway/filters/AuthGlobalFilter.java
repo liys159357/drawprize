@@ -45,13 +45,23 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
         //3.获取token
         String token = null;
         List<String> headers = request.getHeaders().get("authorization");
+        List<String> headers2 = request.getHeaders().get("token");
+
+        System.out.println(headers + " 666");
+        System.out.println(headers + " 777");
+
         if (headers != null && !headers.isEmpty()){
             token = headers.get(0);
         }
+
+        System.out.println("token: " + token);
         //4.校验并解析token
         Long userId = null;
         try {
             userId = jwtTool.parseToken(token);
+
+            System.out.println("userId: " + userId);
+
         }catch (UnauthorizedException e){
             //拦截：设置响应状态码为401
             ServerHttpResponse response = exchange.getResponse();
@@ -64,6 +74,8 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
                 .request(builder -> builder.header("user-info", userInfo))
                 .build();
         //6.放行
+
+        System.out.println("fx.......");
         return chain.filter(swe);
     }
 

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -23,8 +24,11 @@ public class PrizeController {
     /**
      * 查询所有可用奖品
      */
+    //todo
     @GetMapping("/available")
-    public List<Prize> getAvailablePrizes() {
+    public List<Prize> getAvailablePrizes(HttpServletRequest request) {
+        String token = request.getHeader("token");
+        System.out.println("Received token:" + token); // 添加后端token日志
         return prizeService.getAvailablePrizes();
     }
 
