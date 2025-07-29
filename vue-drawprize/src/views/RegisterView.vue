@@ -5,25 +5,25 @@
         <h2 class="title">用户注册</h2>
         <el-form class="form" label-position="top">
           <el-form-item label="用户名">
-            <el-input 
-              v-model="form.username" 
-              placeholder="请输入用户名"
-              clearable
+            <el-input
+                v-model="form.username"
+                placeholder="请输入用户名"
+                clearable
             />
           </el-form-item>
           <el-form-item label="密码">
-            <el-input 
-              v-model="form.password" 
-              type="password" 
-              placeholder="请输入密码"
-              show-password
+            <el-input
+                v-model="form.password"
+                type="password"
+                placeholder="请输入密码"
+                show-password
             />
           </el-form-item>
-          <el-button 
-            type="primary" 
-            class="submit-btn" 
-            @click="handleRegister"
-            :loading="loading"
+          <el-button
+              type="primary"
+              class="submit-btn"
+              @click="handleRegister"
+              :loading="loading"
           >
             注册
           </el-button>

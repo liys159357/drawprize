@@ -4,132 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c94ac96a-e14a-4e72-99ab-aed8aa9e6d10" name="更改" comment="最终版本">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/9551786b-dbb1-4535-9ee0-4ecf256eb251.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/9551786b-dbb1-4535-9ee0-4ecf256eb251/storage_v2/_src_/schema/drawprize.TjGuCQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/9551786b-dbb1-4535-9ee0-4ecf256eb251/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/9551786b-dbb1-4535-9ee0-4ecf256eb251/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/9551786b-dbb1-4535-9ee0-4ecf256eb251/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/9551786b-dbb1-4535-9ee0-4ecf256eb251/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/gateway/spring.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/gateway/spring.log.2025-06-03.0.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/gateway/spring.log.2025-07-15.0.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/user-service/spring.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/user-service/spring.log.2025-05-25.0.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lottery-service/target/classes/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lottery-service/target/classes/com/ss/lottery/LotteryServiceApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lottery-service/target/classes/com/ss/lottery/config/RabbitMQConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lottery-service/target/classes/com/ss/lottery/config/RetryConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lottery-service/target/classes/com/ss/lottery/controller/LotteryController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lottery-service/target/classes/com/ss/lottery/entity/LotteryResult.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lottery-service/target/classes/com/ss/lottery/entity/Prize.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lottery-service/target/classes/com/ss/lottery/entity/UserLotteryRecord.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lottery-service/target/classes/com/ss/lottery/entity/vo/UserLotteryRecordVO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lottery-service/target/classes/com/ss/lottery/feign/PrizeFeignClient.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lottery-service/target/classes/com/ss/lottery/feign/PrizeFeignClientFallback.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lottery-service/target/classes/com/ss/lottery/feign/UserFeignClient.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lottery-service/target/classes/com/ss/lottery/mapper/UserLotteryRecordMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lottery-service/target/classes/com/ss/lottery/service/LotteryService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lottery-service/target/classes/com/ss/lottery/service/impl/LotteryServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lottery-service/target/classes/mapper/UserLotteryRecordMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prize-service/target/classes/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prize-service/target/classes/com/ss/prize/PrizeApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prize-service/target/classes/com/ss/prize/config/MyBatisPlusConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prize-service/target/classes/com/ss/prize/controller/PrizeController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prize-service/target/classes/com/ss/prize/entity/Prize.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prize-service/target/classes/com/ss/prize/mapper/PrizeMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prize-service/target/classes/com/ss/prize/service/PrizeService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prize-service/target/classes/com/ss/prize/service/impl/PrizeServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prize-service/target/classes/mapper/PrizeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prize-service/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prize-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prize-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prize-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prize-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prize-service/target/prize-service-1.0.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prize-service/target/prize-service-1.0.0.jar.original" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sss-gateway/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sss-gateway/target/classes/META-INF/spring.factories" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sss-gateway/target/classes/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sss-gateway/target/classes/bootstrap.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sss-gateway/target/classes/com/ss/gateway/GatewayApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sss-gateway/target/classes/com/ss/gateway/config/AuthProperties.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sss-gateway/target/classes/com/ss/gateway/config/GlobalCorsConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sss-gateway/target/classes/com/ss/gateway/config/JwtProperties.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sss-gateway/target/classes/com/ss/gateway/config/MvcConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sss-gateway/target/classes/com/ss/gateway/config/SecurityConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sss-gateway/target/classes/com/ss/gateway/filters/AuthGlobalFilter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sss-gateway/target/classes/com/ss/gateway/interceptor/UserInfoInterceptor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sss-gateway/target/classes/com/ss/gateway/util/JwtTool.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sss-gateway/target/classes/com/ss/gateway/util/UserContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sss-gateway/target/classes/hmall.jks" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/classes/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/classes/com/ss/user/UserApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/classes/com/ss/user/config/JwtProperties.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/classes/com/ss/user/config/SecurityConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/classes/com/ss/user/controller/UserController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/classes/com/ss/user/domain/dto/LoginFormDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/classes/com/ss/user/domain/po/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/classes/com/ss/user/domain/vo/UserLoginVO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/classes/com/ss/user/enums/UserStatus.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/classes/com/ss/user/mapper/UserMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/classes/com/ss/user/service/IUserService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/classes/com/ss/user/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/classes/com/ss/user/utils/JwtTool.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/classes/hmall.jks" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/user-service.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/target/user-service.jar.original" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/.vscode/extensions.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/api/lottery.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/api/prize.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/assets/base.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/assets/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/assets/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/components/HelloWorld.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/components/TheWelcome.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/components/WelcomeItem.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/components/icons/IconCommunity.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/components/icons/IconDocumentation.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/components/icons/IconEcosystem.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/components/icons/IconSupport.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/components/icons/IconTooling.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/router/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/stores/counter.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/stores/user.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/views/AboutView.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/views/DrawView.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/views/HomeView.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/views/LoginView.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/views/PrizeListView.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/views/RegisterView.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/src/views/WinningRecordsView.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/tsconfig.app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/tsconfig.node.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-drawprize/vite.config.ts" afterDir="false" />
+    <list default="true" id="c94ac96a-e14a-4e72-99ab-aed8aa9e6d10" name="更改" comment="最终版本(前端+后端)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/gateway/spring.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/gateway/spring.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-drawprize/src/views/RegisterView.vue" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -361,6 +239,8 @@
       <workItem from="1752547513367" duration="236000" />
       <workItem from="1753751135028" duration="250000" />
       <workItem from="1753751406098" duration="1077000" />
+      <workItem from="1753753018413" duration="850000" />
+      <workItem from="1753753893499" duration="21000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -434,7 +314,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751119746369</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="最终版本(前端+后端)">
+      <option name="closed" value="true" />
+      <created>1753753448334</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1753753448334</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -468,7 +356,8 @@
     <MESSAGE value="完成了用户中奖信息模块展示功能(根据用户id和是否中奖来查询)" />
     <MESSAGE value="完成了网关模块" />
     <MESSAGE value="最终版本" />
-    <option name="LAST_COMMIT_MESSAGE" value="最终版本" />
+    <MESSAGE value="最终版本(前端+后端)" />
+    <option name="LAST_COMMIT_MESSAGE" value="最终版本(前端+后端)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
