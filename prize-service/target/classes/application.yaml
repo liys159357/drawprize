@@ -1,0 +1,27 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: prize-service # 服务名称
+  cloud:
+    nacos:
+      server-addr: 192.168.118.129:8848
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://192.168.118.129:3306/drawprize?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123
+mybatis-plus:
+  type-aliases-package: com.ss.prize.entity
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: #配置逻辑删除字段
+hm:
+  jwt:
+    location: classpath:hmall.jks
+    alias: hmall
+    password: hmall123
+    tokenTTL: 30m

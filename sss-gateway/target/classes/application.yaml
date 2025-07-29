@@ -1,0 +1,80 @@
+#todo
+server:
+  port: 8080
+spring:
+  main:
+    web-application-type: reactive
+  cloud:
+    nacos:
+      server-addr: 192.168.118.129:8848
+    gateway:
+#      default-filters: # 配置全局过滤器
+#        - name: auth-global-filter  # 改为小写短横线形式
+#          args:
+#            auth:
+#              filter:
+#                excludePaths:
+#                  - /api/lottery/login
+#                  - /api/lottery/register
+#                  - /api/users/login
+#                  - /api/users/register
+      routes:
+        - id: lottery-service
+          uri: lb://lottery-service
+          predicates:
+            - Path=/api/lottery/**
+        - id: prize-service
+          uri: lb://prize-service
+          predicates:
+            - Path=/api/prizes/**
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/users/**
+hm:
+  jwt:
+    location: classpath:hmall.jks  #秘钥地址
+    alias: hmall   #秘钥别名
+    password: hmall123  #密钥密码
+    tokenTTL: 30m  #登录有效期
+ss:
+  auth:
+    excludePaths:  #无需登录效验的路径
+      - /users/login
+      - /users/register
+      -
+
+#      - /api/users/register
+
+
+#server:
+#  port: 8080
+#spring:
+#  application:
+#    name: gateway
+#  cloud:
+#    nacos:
+#      server-addr: 192.168.118.129:8848
+#    gateway:
+#      routes:
+#        - id: item # 路由规则id，自定义，唯一
+#          uri: lb://item-service # 路由的目标服务，lb代表负载均衡，会从注册中心拉取服务列表
+#          predicates: # 路由断言，判断当前请求是否符合当前规则，符合则路由到目标服务
+#            - Path=/items/**,/search/** # 这里是以请求路径作为判断规则
+#        - id: cart
+#          uri: lb://cart-service
+#          predicates:
+#            - Path=/carts/**
+#        - id: user
+#          uri: lb://user-service
+#          predicates:
+#            - Path=/users/**,/addresses/**
+#        - id: trade
+#          uri: lb://trade-service
+#          predicates:
+#            - Path=/orders/**
+#        - id: pay
+#          uri: lb://pay-service
+#          predicates:
+#            - Path=/pay-orders/**
+

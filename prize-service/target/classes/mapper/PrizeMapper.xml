@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ss.prize.mapper.PrizeMapper">
+    <select id="selectAvailablePrizes" resultType="com.ss.prize.entity.Prize">
+        SELECT * FROM prize WHERE remaining > 0 AND enabled = true
+    </select>
+</mapper>

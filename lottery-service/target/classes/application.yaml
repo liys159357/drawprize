@@ -1,0 +1,88 @@
+#server:
+#  port: 8082
+#spring:
+#  application:
+#    name: lottery-service # 服务名称
+#  cloud:
+#    nacos:
+#      server-addr: 192.168.118.129:8848
+#  profiles:
+#    active: dev
+#  datasource:
+#    url: jdbc:mysql://192.168.118.129:3306/drawprize?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: root
+#    password: 123
+#  rabbitmq:
+#    host : 192.168.118.129
+#    port : 5672
+#    username: hmall
+#    password: 123
+#mybatis-plus:
+#  type-aliases-package: com.ss.lottery.entity
+#  global-config:
+#    db-config:
+#      id-type: auto
+#      logic-delete-field: #配置逻辑删除字段
+#
+## 服务配置
+#prize-service:
+#  url: http://localhost:8081/api/prizes
+#lottery:
+#  mq:
+#    exchange: lottery-exchange
+#    routingKey: lottery.result
+#feign:
+#  okhttp:
+#    enabled: true # 开启OKHttp功能
+server:
+  port: 8083
+spring:
+  application:
+    name: lottery-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.118.129:3306/drawprize?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123
+  rabbitmq:
+    host: 192.168.118.129
+    port: 5672
+    username: hmall
+    password: 123
+    virtual-host: /hmall
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 3
+          initial-interval: 200ms
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.118.129:8848
+  feign:
+    client:
+      config:
+        default:
+          connect-timeout: 5000
+          read-timeout: 5000
+    hystrix:
+      enabled: true
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.lottery.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+lottery:
+  mq:
+    exchange: lottery.exchange
+    routingKey: lottery.result
+
+logging:
+  level:
+    com.lottery: INFO
+    com.lottery.service.impl: DEBUG
+    org.springframework.amqp: INFO

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ss.lottery.mapper.UserLotteryRecordMapper">
+    <!-- 自定义SQL可以在这里添加 -->
+    <select id="countByUserId" resultType="java.lang.Integer" parameterType="java.lang.String">
+        SELECT COUNT(*) FROM user_lottery_record WHERE user_id = #{userId}
+    </select>
+
+
+    <select id="selectByUserIdAndResult" resultType="com.ss.lottery.entity.UserLotteryRecord">
+        SELECT * FROM user_lottery_record
+        WHERE user_id = #{userId} AND result = #{result}
+        ORDER BY create_time DESC
+    </select>
+</mapper>

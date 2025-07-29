@@ -1,0 +1,7 @@
+com\ss\prize\controller\PrizeController.class
+com\ss\prize\service\impl\PrizeServiceImpl.class
+com\ss\prize\entity\Prize.class
+com\ss\prize\mapper\PrizeMapper.class
+com\ss\prize\PrizeApplication.class
+com\ss\prize\config\MyBatisPlusConfig.class
+com\ss\prize\service\PrizeService.class

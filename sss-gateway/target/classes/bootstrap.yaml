@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: gateway  #微服务名称
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      server-addr: 192.168.118.129:8848  # nacos地址
+      config:
+        file-extension: yaml   # 文件名后缀
+        shared-configs:   #共享配置
+          - data-id: shared-log.yaml  #共享日志配置
+
+
+logging:
+  spring:framework:
+    gateway:
+      level: debug
+
+
+#spring:
+#  application:
+#    name: gateway
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 192.168.118.129:8848
+#      config:
+#        file-extension: yaml   # 文件名后缀
+#        shared-configs: #共享配置
+#          - data-id: shared-log.yaml  #共享日志配置
